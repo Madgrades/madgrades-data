@@ -11,9 +11,9 @@ jobs:
       - name: Build image
         run: docker build -t tables .
       - name: Copy tables from image
-        run: 'docker cp $(docker create tables):/build/tables /tables'
+        run: 'docker cp $(docker create tables):/build/tables ./tables'
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: tables  
-          path: /tables
+          path: ./tables
