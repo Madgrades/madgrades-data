@@ -17,5 +17,4 @@ java -jar \
   madgrades-extractor/target/madgrades-final*.jar \
   -reports ./src \
   -out ./tables \
-  -f MYSQL \
-  -t 1222
+  -f MYSQL
