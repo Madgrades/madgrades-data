@@ -1,0 +1,19 @@
+name: ci
+on:
+  push:
+    branches: main
+jobs:
+  build-and-upload-artifactsg:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build image
+        run: docker build -t tables .
+      - name: Copy tables from image
+        run: 'docker cp $(docker create tables):/build/tables ./tables'
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: tables  
+          path: ./tables
