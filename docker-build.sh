@@ -13,7 +13,8 @@ cd madgrades-extractor
 mvn install
 cd ..
 # Run madgrades-extractor on the reports.
-java -jar madgrades-extractor/target/madgrades-final*.jar \
+java -jar -Xss1m \
+  madgrades-extractor/target/madgrades-final*.jar \
   -reports ./src \
   -out ./tables \
   -f MYSQL \
