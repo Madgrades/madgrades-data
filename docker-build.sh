@@ -14,7 +14,7 @@ mvn install
 cd ..
 # Run madgrades-extractor on the reports.
 java -jar \
-  -Xmx6m \
+  -Xmx6g \
   madgrades-extractor/target/madgrades-final*.jar \
   -reports ./src \
   -out ./tables \
