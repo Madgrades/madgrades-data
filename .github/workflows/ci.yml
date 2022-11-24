@@ -3,7 +3,7 @@ on:
   push:
     branches: master
 jobs:
-  build-and-upload-artifactsg:
+  build-and-upload-artifact:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
