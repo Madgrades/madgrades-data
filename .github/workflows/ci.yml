@@ -1,7 +1,7 @@
 name: ci
 on:
   push:
-    branches: master
+    branches: memory
 jobs:
   build-and-upload-artifact:
     runs-on: ubuntu-latest
