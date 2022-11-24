@@ -1,4 +1,5 @@
 name: ci
+runs-on: ubuntu-latest
 on:
   push:
     branches: actions
@@ -14,5 +15,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: tables
+          name: tables  
           path: /tables
