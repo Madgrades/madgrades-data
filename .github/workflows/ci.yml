@@ -53,3 +53,4 @@ jobs:
             export RAILS_ENV=production
             cd /root/madgrades/api.madgrades.com
             /root/.rbenv/shims/rake seed -- --path=/tmp/staging/tables
+          command_timeout: 60m
