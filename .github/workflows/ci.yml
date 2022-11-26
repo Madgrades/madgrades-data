@@ -40,4 +40,6 @@ jobs:
           host: ${{ secrets.PROD_HOST }}
           username: ${{ secrets.PROD_USERNAME }}
           password: ${{ secrets.PROD_PASSWORD }}
-          script: cd /root/madgrades/api.madgrades.com && rake seed -- --path=/tmp/tables
+          script: |
+            cd /root/madgrades/api.madgrades.com
+            /root/.rbenv/shims/rake seed -- --path=/tmp/tables
