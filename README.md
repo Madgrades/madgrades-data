@@ -2,5 +2,6 @@
 
 UW Madison grade report PDF files retrieved from the [registrar website](https://registrar.wisc.edu/grade-reports/).
 
-See the [Kaggle dataset](https://www.kaggle.com/madgrades/uw-madison-courses) for the data extracted into CSV files.
+## Contributing
 
+See [contributing.md](https://github.com/Madgrades/registrar-reports/blob/master/CONTRIBUTING.md) for more info.

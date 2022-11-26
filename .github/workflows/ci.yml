@@ -1,4 +1,4 @@
-name: ci
+name: Build and deploy to prod
 on:
   push:
     branches: master
