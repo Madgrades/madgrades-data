@@ -33,7 +33,7 @@ jobs:
           username: ${{ secrets.PROD_USERNAME }}
           password: ${{ secrets.PROD_PASSWORD }}
           script: |
-            rm /tmp/staging/tables
+            rm -rf /tmp/staging/tables
             mkdir -p /tmp/staging/tables
       - name: Copy artifacts to prod
         uses: appleboy/scp-action@master
@@ -50,6 +50,6 @@ jobs:
           username: ${{ secrets.PROD_USERNAME }}
           password: ${{ secrets.PROD_PASSWORD }}
           script: |
-            export RAILS_ENVIRONMENT=development
+            export RAILS_ENV=development
             cd /root/madgrades/api.madgrades.com
             /root/.rbenv/shims/rake seed -- --path=/tmp/staging/tables
