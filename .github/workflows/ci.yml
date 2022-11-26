@@ -25,7 +25,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: tables
-          path: ./
+          path: ./tables
       - name: Staging tables
         uses: appleboy/ssh-action@master
         with:
@@ -42,7 +42,7 @@ jobs:
           username: ${{ secrets.PROD_USERNAME }}
           password: ${{ secrets.PROD_PASSWORD }}
           source: "tables/*"
-          target: "/tmp/staging/tables"
+          target: "/tmp/staging"
       - name: Seed prod database with tables
         uses: appleboy/ssh-action@master
         with:
