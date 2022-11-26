@@ -1,7 +1,7 @@
 name: ci
 on:
   push:
-    branches: deploy
+    branches: master
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,7 +26,7 @@ jobs:
         with:
           name: tables
           path: ./tables
-      - name: Staging tables
+      - name: Prepare staging directory
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.PROD_HOST }}
@@ -35,7 +35,7 @@ jobs:
           script: |
             rm -rf /tmp/staging/tables
             mkdir -p /tmp/staging/tables
-      - name: Copy artifacts to prod
+      - name: Copy artifacts to prod staging directory
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.PROD_HOST }}
@@ -43,13 +43,13 @@ jobs:
           password: ${{ secrets.PROD_PASSWORD }}
           source: "tables/*"
           target: "/tmp/staging"
-      - name: Seed prod database with tables
+      - name: Seed prod database with staging tables
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.PROD_HOST }}
           username: ${{ secrets.PROD_USERNAME }}
           password: ${{ secrets.PROD_PASSWORD }}
           script: |
-            export RAILS_ENV=development
+            export RAILS_ENV=production
             cd /root/madgrades/api.madgrades.com
             /root/.rbenv/shims/rake seed -- --path=/tmp/staging/tables
