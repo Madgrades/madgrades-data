@@ -34,3 +34,10 @@ jobs:
           password: ${{ secrets.PROD_PASSWORD }}
           source: "tables/*"
           target: "/tmp/tables"
+      - name: Seed dev database with tables
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USERNAME }}
+          password: ${{ secrets.PROD_PASSWORD }}
+          script: cd /root/madgrades/api.madgrades.com && rake seed -- --path=/tmp/tables
