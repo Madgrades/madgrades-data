@@ -16,3 +16,4 @@ If you would like to help out by adding the latest semester's data or making cor
 * `dir` contains PDFs of the published tabular [final department instructional reports (DIR)](https://registrar.wisc.edu/curricular-build/#dir).
 
 After the pull request is created an administrator will review, approve, and merge the change into the main branch.
+
