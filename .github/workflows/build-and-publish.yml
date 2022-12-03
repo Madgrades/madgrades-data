@@ -2,7 +2,7 @@ name: Build and Publish
 on:
   push:
     branches:
-      - image
+      - main
   pull_request:
 jobs:
   build-and-push-docker-image:
@@ -23,5 +23,4 @@ jobs:
           context: ./
           tags: |
             ghcr.io/madgrades/madgrades-data:latest
-          push: true
-          # push: ${{ github.ref == 'refs/heads/main' }}
+          push: ${{ github.ref == 'refs/heads/main' }}
