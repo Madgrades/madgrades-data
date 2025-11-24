@@ -1,0 +1,15 @@
+name: Notify Downstream Repo(s)
+on:
+  push:
+    branches: [main]
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger submodule-updated workflow in Madgrades/reports
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.ACTIONS_GITHUB_TOKEN }}" \
+            https://api.github.com/repos/Madgrades/reports/dispatches \
+            -d '{"event_type":"submodule-updated"}'
