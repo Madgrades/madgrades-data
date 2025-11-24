@@ -10,10 +10,9 @@ jobs:
         id: generate-token
         uses: actions/create-github-app-token@v1
         with:
-          permissions: |
-            contents: write
           app-id: ${{ secrets.MADGRADES_AUTOMATOR_APP_ID }}
           private-key: ${{ secrets.MADGRADES_AUTOMATOR_PRIVATE_KEY }}
+          repositories: reports
 
       - name: Trigger submodule-updated workflow in Madgrades/reports
         run: |
