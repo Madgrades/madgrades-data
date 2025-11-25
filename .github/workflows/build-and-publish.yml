@@ -19,6 +19,8 @@ jobs:
           app-id: ${{ secrets.MADGRADES_AUTOMATOR_APP_ID }}
           private-key: ${{ secrets.MADGRADES_AUTOMATOR_PRIVATE_KEY }}
           owner: madgrades
+          permission-packages: write
+          permission-contents: read
 
       - name: Login to Github Packages
         uses: docker/login-action@v2
